@@ -1,0 +1,4 @@
+To make ports 5000 and 8080 not show up in the list:
+    - Remove EXPOSE lines from both Dockerfiles
+    - Remove ports from docker-compose.yaml
+    

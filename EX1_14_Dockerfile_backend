@@ -1,0 +1,25 @@
+FROM ubuntu
+
+WORKDIR /usr/src/app
+
+EXPOSE 8080
+
+COPY . .
+
+ENV REQUEST_ORIGIN=http://127.0.0.1:5000
+
+RUN apt update && apt install -y curl
+
+RUN curl -L https://go.dev/dl/go1.16.linux-amd64.tar.gz --output ./go1.16.linux-amd64.tar.gz
+
+RUN rm -rf /usr/local/go && tar -C /usr/local -xzf /usr/src/app/go1.16.linux-amd64.tar.gz
+
+ENV PATH=/usr/local/go/bin
+
+RUN export PATH
+
+RUN go version
+
+RUN go build
+
+CMD ["./server", "8080"]

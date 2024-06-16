@@ -1,0 +1,34 @@
+REPOSITORY                          TAG               IMAGE ID       CREATED       SIZE
+ubuntu                              latest            bf3dc08bfed0   4 weeks ago   76.2MB
+ubuntu                              22.04             52882761a72a   4 weeks ago   77.9MB
+fav_distro                          jammy_jellyfish   52882761a72a   4 weeks ago   77.9MB
+devopsdockeruh/simple-web-service   ubuntu            4e3362e907d5   3 years ago   83MB
+devopsdockeruh/simple-web-service   alpine            fd312adc88e0   3 years ago   15.7MB
+
+alpine size - ubuntu size = 67.3MB
+
+$ docker run -d -it --name alpine devopsdockeruh/simple-web-service:alpine
+74179aba5ae01410f4b5180a6db48bce8687292c42810d6a29fa9e96fd8c2427
+
+$ docker run -d -it --name ubuntu devopsdockeruh/simple-web-service:ubuntu
+1660b88082476034ce6909a845ea84856aebd9ed96e3580a6d86a5583eb9cd93
+
+sudo docker ps
+CONTAINER ID   IMAGE                                      COMMAND                 CREATED          STATUS          PORTS     NAMES
+1660b8808247   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"   3 seconds ago    Up 3 seconds              ubuntu
+74179aba5ae0   devopsdockeruh/simple-web-service:alpine   "/usr/src/app/server"   25 seconds ago   Up 24 seconds             alpine
+
+$ docker exec -it ubuntu bash
+root@1660b8808247:/usr/src/app# tail -f ./text.log
+2024-05-31 10:50:00 +0000 UTC
+2024-05-31 10:50:02 +0000 UTC
+2024-05-31 10:50:04 +0000 UTC
+2024-05-31 10:50:06 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+
+$ docker exec -it alpine sh
+/usr/src/app # tail -f ./text.log
+2024-05-31 10:51:04 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+
+The message is the same for Ubuntu and Alpine! 

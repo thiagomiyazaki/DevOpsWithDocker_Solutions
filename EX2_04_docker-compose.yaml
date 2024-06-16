@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  example_frontend_ex2_4:
+    build: ./example-frontend
+    container_name: example_frontend_ex2_4_container
+    ports:
+      - 127.0.0.1:5000:5000
+    environment:
+      REACT_APP_BACKEND_URL: "http://127.0.0.1:8080"
+
+  redis:
+    image: redis
+    build: .
+    ports:
+      - "6379:6379"
+
+  example_backend_ex2_4:
+    build: ./example-backend
+    container_name: yt-example_backend_ex2_4_container
+    ports:
+      - 127.0.0.1:8080:8080
+    environment:
+        REQUEST_ORIGIN: "http://127.0.0.1:5000"
+        PATH: "/usr/local/go/bin"
+        REDIS_HOST: redis
+        REDIS_PORT: 6379

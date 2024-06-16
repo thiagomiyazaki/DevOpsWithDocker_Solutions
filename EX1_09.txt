@@ -1,0 +1,12 @@
+$ mkdir mount_point
+$ docker cp confident_davinci:usr/src/app/server ./mount_point/server
+$ docker run -v "$(pwd)/mount_point/:/usr/src/app/" devopsdockeruh/simple-web-service:ubuntu
+Starting log output
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log

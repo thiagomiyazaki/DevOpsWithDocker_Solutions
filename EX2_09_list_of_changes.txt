@@ -1,0 +1,4 @@
+Hello!
+List of Changes:
+    - I have changed both dockerfiles to receive arguments when built from docker compose, so example-frontend receives the backend url as an argument and example-backend receives request origin as an argument. That way it is easier to tweak the builds from docker-compose.yaml.
+    - After reading the browser's console I saw that it was trying to access the endpoint /ping/ping, so I changed the backend url to http://localhost/api.

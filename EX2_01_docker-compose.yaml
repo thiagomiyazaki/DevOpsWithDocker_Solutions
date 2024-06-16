@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+
+  devops_with_docker_simple_web_service:
+    image: devopsdockeruh/simple-web-service
+    build: .
+    volumes:
+      - /home/thiagomi/Documents/DevOpswithDocker/workspace/part2/ex2_1:/usr/src/app/
+    container_name: simple_wservice_ex2_1
