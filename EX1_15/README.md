@@ -1,4 +1,4 @@
-# Exercise 1.16 (DevOps with Docker)
+# Exercise 1.15 (DevOps with Docker)
 
 Hello! Please, to run this container execute:
 
